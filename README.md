@@ -26,7 +26,7 @@ A simple dice game built using JavaScript where two players take turns rolling a
 - JavaScript (DOM Manipulation)
 
 ## 🚀 Live Demo
-👉 Play the Game
+👉 https://a7med1084.github.io/dice-game/
 
 ## 📷 Screenshots
 (Add screenshots here if you want)
