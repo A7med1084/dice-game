@@ -21,6 +21,7 @@ const hold = document.querySelector(".hold");
 const restart = document.querySelector(".new");
 
 let diceNumber = Math.trunc(Math.random() * 6) + 1;
+let rotate = 0;
 let total = 0;
 let score1 = 0;
 let score2 = 0;
@@ -92,7 +93,8 @@ hold.addEventListener("click", function () {
 });
 
 roll.addEventListener("click", function () {
-  dice.classList.add("move");
+  rotate += 360;
+  dice.style.transform = `rotate(${rotate}deg)`;
   diceNumber = Math.trunc(Math.random() * 6) + 1;
   dice.style.opacity = "1";
   allDices.forEach((el) => (el.style.opacity = "0"));
