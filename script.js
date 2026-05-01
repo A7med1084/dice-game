@@ -54,6 +54,8 @@ const clear = function () {
   fire.style.display = "none";
   roll.style.cursor = "pointer";
   hold.style.cursor = "pointer";
+  disabledRightSection();
+  check = true;
 };
 const playerWinner = function (num) {
   roll.disabled = true;
