@@ -1,5 +1,8 @@
 "use strict";
 
+const body = document.querySelector("body");
+const winner = document.querySelectorAll(".win");
+const fire = document.querySelector(".pyro");
 const dice1 = document.querySelectorAll(".one");
 const dice2 = document.querySelectorAll(".tow");
 const dice3 = document.querySelectorAll(".three");
@@ -12,12 +15,9 @@ const dice = document.querySelector(".dice");
 const roll = document.querySelector(".roll");
 const left = document.querySelector(".left");
 const right = document.querySelector(".right");
-
 const playerScore = document.querySelectorAll(".score");
 const currentScore = document.querySelectorAll(".crt");
-
 const hold = document.querySelector(".hold");
-
 const restart = document.querySelector(".new");
 
 let diceNumber = Math.trunc(Math.random() * 6) + 1;
@@ -27,11 +27,11 @@ let score2 = 0;
 let check = true;
 right.classList.add("check");
 
-const checkRightSection = function () {
+const disabledRightSection = function () {
   left.classList.remove("check");
   right.classList.add("check");
 };
-const checkLeftSection = function () {
+const disabledLeftSection = function () {
   left.classList.add("check");
   right.classList.remove("check");
 };
@@ -40,29 +40,51 @@ const clear = function () {
   playerScore[1].textContent = "0";
   currentScore[0].textContent = "0";
   currentScore[1].textContent = "0";
-};
-
-restart.addEventListener("click", function () {
-  clear();
+  winner.forEach((el) => {
+    el.style.opacity = "0";
+  });
   dice.style.opacity = "0";
   total = 0;
   score1 = 0;
   score2 = 0;
+  roll.disabled = false;
+  hold.disabled = false;
+  body.classList.remove("playerWin");
+  fire.style.display = "none";
+};
+const playerWinner = function (num) {
+  roll.disabled = true;
+  hold.disabled = true;
+  body.classList.add("playerWin");
+  winner[num].style.opacity = "1";
+  fire.style.display = "block";
+};
+
+restart.addEventListener("click", function () {
+  clear();
 });
 
 hold.addEventListener("click", function () {
   if (check) {
-    checkLeftSection();
+    disabledLeftSection();
     score1 += total;
     playerScore[0].textContent = score1;
     currentScore[0].textContent = "0";
     check = false;
+    if (score1 >= 100) {
+      disabledRightSection();
+      playerWinner(0);
+    }
   } else {
-    checkRightSection();
+    disabledRightSection();
     score2 += total;
     playerScore[1].textContent = score2;
     currentScore[1].textContent = "0";
     check = true;
+    if (score2 >= 100) {
+      disabledLeftSection();
+      playerWinner(1);
+    }
   }
   total = 0;
 });
@@ -76,12 +98,12 @@ roll.addEventListener("click", function () {
   if (diceNumber === 1) {
     total = 0;
     if (check) {
-      checkLeftSection();
+      disabledLeftSection();
       currentScore[0].textContent = "0";
       check = false;
     } else {
       currentScore[1].textContent = "0";
-      checkRightSection();
+      disabledRightSection();
       check = true;
     }
   } else if (check) {
