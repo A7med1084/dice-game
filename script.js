@@ -51,6 +51,8 @@ const clear = function () {
   hold.disabled = false;
   body.classList.remove("playerWin");
   fire.style.display = "none";
+  roll.style.cursor = "pointer";
+  hold.style.cursor = "pointer";
 };
 const playerWinner = function (num) {
   roll.disabled = true;
@@ -58,11 +60,11 @@ const playerWinner = function (num) {
   body.classList.add("playerWin");
   winner[num].style.opacity = "1";
   fire.style.display = "block";
+  roll.style.cursor = "not-allowed";
+  hold.style.cursor = "not-allowed";
 };
 
-restart.addEventListener("click", function () {
-  clear();
-});
+restart.addEventListener("click", clear);
 
 hold.addEventListener("click", function () {
   if (check) {
