@@ -1,12 +1,12 @@
 
 # 🎲 Dice Game
 
-## 📌 Description
+## Description
 A simple dice game built using JavaScript where two players take turns rolling a dice and collecting points. The goal is to reach the highest score without rolling a 1.
 
 ---
 
-## 🎮 How to Play
+## How to Play
 - Player 1 starts the game.
 - Click the Roll Dice button to roll.
 - If the dice shows any number except 1 → it gets added to your current score.
@@ -16,7 +16,7 @@ A simple dice game built using JavaScript where two players take turns rolling a
 
 ---
 
-## ✨ Features
+## Features
 - Two-player mode
 - Random dice roll
 - Score tracking
@@ -26,30 +26,30 @@ A simple dice game built using JavaScript where two players take turns rolling a
 
 ---
 
-## 🛠️ Technologies Used
+## Technologies Used
 - HTML5
 - CSS3
 - JavaScript (DOM Manipulation)
 
 ---
 
-## 📸 Preview
+## Preview
 ![Preview 1](images/Dice-Game-1.png)
 ![Preview 2](images/Dice-Game-2.png)
 
 ---
 
-## 🚀 Live Demo
-👉 https://a7med1084.github.io/dice-game/
+## Live Demo
+https://a7med1084.github.io/dice-game/
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 - index.html
 - style.css
 - script.js
 
 ---
 
-## 👨‍💻 Author
+## Author
 Ahmed Anwar
